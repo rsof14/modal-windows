@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modal window</title>
+    <link rel="stylesheet" type="text/css" href="window.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <script src="window.js"></script>
+</head>
+<body>
+
+
+<a href="#AddModal" data-toggle="modal" class="button">Добавить</a>
+
+<div class="box">
+    <div class="centered">
+        <table class="table">
+            <colgroup>
+                <col span="4" style="background:LightCyan">
+            </colgroup>
+            <tr>
+                <th>Код</th>
+                <th>Предмет/тема</th>
+                <th>Часов</th>
+                <th>Редактировать</th>
+                <th>ID</th>
+            </tr>
+        </table>
+    </div>
+</div>
+<div id="AddModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLiveLabel">Добавить предмет</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+
+            <form  class="formStyle" onsubmit="SubmitAddition()">
+                <label class="label" for="code">
+                    Код предмета
+                </label>
+                <br>
+                <input type="text" name="code" id="new_code" class="input-xlarge" style="width: 300px;">
+                <br>
+                <label class="label" for="subj">
+                    Предмет
+                </label>
+                <br>
+                <input type="text" name="subj" id="new_subj" class="input-xlarge" style="width: 300px;">
+                <br>
+                <label class="label" for="hours">
+                    Часы
+                </label>
+                <br>
+                <input type="text" name="hours" id="new_hours" class="input-xlarge" style="width: 300px;">
+
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                 <button type="button" onclick="SubmitAddition()">Сохранить</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div id="EditModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Редактировать предмет</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+
+            <form  class="formStyle">
+                <label class="label" for="code">
+                    Код предмета
+                </label>
+                <br>
+                <input type="text" name="code" id="code" class="input-xlarge" style="width: 300px;">
+                <br>
+                <label class="label" for="subj">
+                    Предмет
+                </label>
+                <br>
+                <input type="text" name="subj" id="subj" class="input-xlarge" style="width: 300px;">
+                <br>
+                <label class="label" for="hours">
+                    Часы
+                </label>
+                <br>
+                <input type="text" name="hours" id="hours" class="input-xlarge" style="width: 300px;">
+                <p id="IdInForm" hidden></p>
+
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                 <button type="button" onclick="SubmitEdit()">Сохранить</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
