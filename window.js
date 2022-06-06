@@ -1,5 +1,3 @@
-//var img_button = "<button width=20px height=20px onclick='SubmitAddition()'><img src='edit_img.png' width=20px height=20px></button>";
-//var img_button = "<a href='#EditModal' data-toggle='modal'><img src='edit_img.png' width=30px height=30px></a>";
 var current_obj = null;
 var current_row = null;
 var current_subj = null;
@@ -12,7 +10,7 @@ function SubmitAddition(){
     let tr = document.createElement('tr');
     let td_code = document.createElement('td');
 	td_code.innerHTML = document.getElementById("new_code").value;
-	let img_button = "<button width=20px height=20px onclick='BeforeEdit(id)' id=" + (obj_table.rows.length + 1) +"><img src='edit_img.png' width=20px height=20px></button>";
+	let img_button = "<button width=20px height=20px margin-right: 20px onclick='BeforeEdit(id)' id=" + (obj_table.rows.length + 1) +"><img src='edit_img.png' width=20px height=20px></button><button width=20px height=20px margin-left: 20px onclick='deleteStr(id)' id=" + (obj_table.rows.length + 1) +"><img src='del.png' width=20px height=20px></button>";
 	document.getElementById("new_code").value = "";
 	tr.appendChild(td_code);
 	let td_subj = document.createElement('td');
@@ -118,4 +116,9 @@ function BeforeEdit(id){
     current_row = null;
     $("#EditModal").modal('show');
 
+}
+
+function deleteStr(id){
+    let table = document.getElementsByTagName("table")[0];
+    table.deleteRow(id - 1);
 }
